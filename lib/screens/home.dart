@@ -37,7 +37,7 @@ class _MainPageState extends State<MainPage> {
               fontSize: 80, color: Colors.white, fontWeight: FontWeight.bold),
         );
       });
-      if (number == intValue) {
+      if (int.parse(controller.text) == intValue) {
         answer = Text(
           "You are right!",
           style: GoogleFonts.mukta(
