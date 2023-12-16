@@ -29,7 +29,7 @@ class _MainPageState extends State<MainPage> {
             fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
       );
     });
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         text = Text(
           "$intValue",
@@ -73,92 +73,94 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
       backgroundColor: Colors.white,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 50,
-          ),
-          Text(
-            "Try to guess a number into 1 to 10",
-            style: GoogleFonts.mukta(
-              fontSize: 20,
-              color: Colors.black,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 50,
             ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 10.0),
-            child: Align(
-              alignment: Alignment.center,
-              child: Container(
-                  height: 200,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(
-                      30,
-                    ),
-                    color: Colors.red,
-                  ),
-                  child: number == 0
-                      ? Center(
-                          child: text,
-                        )
-                      : Text("$number")),
-            ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 55.0),
-            child: InputField(
-              label: "Your try: ",
-              hint: "1 to 10",
-              controller: controller,
-            ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          MaterialButton(
-            minWidth: 200,
-            height: 50,
-            onPressed: onSubmit,
-            color: Colors.red,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-                20,
-              ),
-            ),
-            textColor: const Color.fromARGB(255, 247, 247, 247),
-            child: Text(
-              "Submit",
+            Text(
+              "Try to guess a number into 1 to 10",
               style: GoogleFonts.mukta(
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
+                fontSize: 20,
+                color: Colors.black,
               ),
             ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Result: ",
+            const SizedBox(
+              height: 40,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10.0),
+              child: Align(
+                alignment: Alignment.center,
+                child: Container(
+                    height: 200,
+                    width: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        30,
+                      ),
+                      color: Colors.red,
+                    ),
+                    child: number == 0
+                        ? Center(
+                            child: text,
+                          )
+                        : Text("$number")),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 55.0),
+              child: InputField(
+                label: "Your try: ",
+                hint: "1 to 10",
+                controller: controller,
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            MaterialButton(
+              minWidth: 200,
+              height: 50,
+              onPressed: onSubmit,
+              color: Colors.red,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  20,
+                ),
+              ),
+              textColor: const Color.fromARGB(255, 247, 247, 247),
+              child: Text(
+                "Submit",
                 style: GoogleFonts.mukta(
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              answer,
-            ],
-          ),
-        ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Result: ",
+                  style: GoogleFonts.mukta(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                answer,
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
